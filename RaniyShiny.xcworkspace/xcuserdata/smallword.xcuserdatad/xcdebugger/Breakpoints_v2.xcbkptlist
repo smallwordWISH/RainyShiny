@@ -148,16 +148,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RaniyShiny/WeatherVC.swift"
-            timestampString = "532795794.901531"
+            timestampString = "532862904.172172"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "locationAuthStatus()"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "downloadForecastData(completed:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RaniyShiny.WeatherVC.(downloadForecastData (completed : () -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "RaniyShiny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/smallword/Documents/Udemy/RainyShiny/RaniyShiny/WeatherVC.swift"
+                  timestampString = "532860184.863825"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "658">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RaniyShiny.WeatherVC.(downloadForecastData (completed : () -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "RaniyShiny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/smallword/Documents/Udemy/RainyShiny/RaniyShiny/WeatherVC.swift"
+                  timestampString = "532860184.868044"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "978">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RaniyShiny/WeatherVC.swift"
+            timestampString = "532862904.172172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "downloadForecastData(completed:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -168,12 +216,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RaniyShiny/WeatherVC.swift"
-            timestampString = "532795929.698031"
+            timestampString = "532862904.172172"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "locationAuthStatus()"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

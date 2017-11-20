@@ -33,39 +33,64 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startMonitoringSignificantLocationChanges()
+        locationManager.requestLocation()
         
         tableView.delegate = self
         tableView.dataSource = self
         
         currentWeather = CurrentWeather()
-
+    
 
     }
-  
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        locationAuthStatus()
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation = locations[0]
+        
+        // Save the location data
+        Location.sharedInstance.latitude = userLocation.coordinate.latitude
+        Location.sharedInstance.longitude = userLocation.coordinate.longitude
+        downloadDataAndUpdateUI()
     }
     
-    func locationAuthStatus() {
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            currentLocation  = locationManager.location
-            Location.sharedInstance.latitude = currentLocation.coordinate.latitude
-            Location.sharedInstance.longitude = currentLocation.coordinate.longitude
-            currentWeather.downloadWeatherDetails {
-                //Setup UI to load downloaded data
-                self.downloadForecastData {
-                    self.updateMainUI()
-                }
-                
-                
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        // Hardwire longitude and lattiude coor to Vancouver in case location is denied
+        Location.sharedInstance.latitude = 49.25
+        Location.sharedInstance.longitude = -123.12
+        downloadDataAndUpdateUI()
+    }
+    
+    func downloadDataAndUpdateUI() {
+        currentWeather.downloadWeatherDetails {
+            self.downloadForecastData {
+                self.updateMainUI()
             }
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-            locationAuthStatus()
         }
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        locationAuthStatus()
+//    }
+//    
+//
+//    func locationAuthStatus() {
+//        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+//            currentLocation  = locationManager.location
+//            Location.sharedInstance.latitude = currentLocation.coordinate.latitude
+//            Location.sharedInstance.longitude = currentLocation.coordinate.longitude
+//            currentWeather.downloadWeatherDetails {
+//                //Setup UI to load downloaded data
+//                self.downloadForecastData {
+//                    self.updateMainUI()
+//                }
+//                
+//                
+//            }
+//        } else {
+//            locationManager.requestWhenInUseAuthorization()
+//            locationAuthStatus()
+//        }
+//    }
     
     func downloadForecastData(completed: @escaping DownloadComplete) {
         //Downloading forecast wweather data for tableview
@@ -117,5 +142,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         currentWeatherImage.image = UIImage(named: currentWeather.weatherType)
         
     }
+    
+
 }
 
